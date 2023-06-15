@@ -160,6 +160,185 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/15/%E5%8F%AF%E6%8E%A7%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%901/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="luke">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Luke的家">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/15/%E5%8F%AF%E6%8E%A7%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%901/" class="post-title-link" itemprop="url">可控文本生成1</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-06-15 17:50:51 / 修改时间：18:38:04" itemprop="dateCreated datePublished" datetime="2023-06-15T17:50:51+08:00">2023-06-15</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>整理自：<a target="_blank" rel="noopener" href="https://blog.csdn.net/yaohaishen/article/details/125893621">可控文本生成系列-A Survey of Controllable Text Generation using Transformer-based Pre-trained_just do it now的博客-CSDN博客</a></p>
+<h1 id="一、什么是"><a href="#一、什么是" class="headerlink" title="一、什么是"></a>一、什么是</h1><p>CTG 可控制的文本生成 在传统的文本生成的基础上，增加对生成文本的属性风格、关键信息的控制。</p>
+<blockquote>
+<p>什么是文本生成？</p>
+<ul>
+<li>信息抽取：生成式阅读理解</li>
+<li>对话系统：闲聊回复|知识型问答回复</li>
+<li>创作：写诗词，对联，新闻，小说 | 生成广告文案内容 | 生成吸睛营销标题 等</li>
+</ul>
+<p>这是传统的文本生成。</p>
+</blockquote>
+<p>可控的文本生成，加入控制因素，使得最终输出满足条件。</p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>特定属性的自然语言生成，特定情感、口吻、风格的文本。</p>
+<p>对话</p>
+<p>辅助文学创作</p>
+<p>结构化数据生成自然语言</p>
+<p>偏见文本转化</p>
+<p>风格格式转化</p>
+<h2 id="主要的预训练语言模型？"><a href="#主要的预训练语言模型？" class="headerlink" title="主要的预训练语言模型？"></a>主要的预训练语言模型？</h2><p>暂时未知</p>
+<p>各种大模型？</p>
+<p>基于Pre-trained Language Model(PLM)的CTG方法：</p>
+<p>有BERT、XLNET GPT XLM……</p>
+<p><img src="C:\Users\19477\AppData\Roaming\Typora\typora-user-images\image-20230615183620756.png" alt="image-20230615183620756"></p>
+<h1 id="二、方法"><a href="#二、方法" class="headerlink" title="二、方法"></a>二、方法</h1><h1 id="1-Fine-tuning"><a href="#1-Fine-tuning" class="headerlink" title="1 Fine-tuning"></a>1 Fine-tuning</h1><h3 id="迁移学习"><a href="#迁移学习" class="headerlink" title="迁移学习"></a>迁移学习</h3><p>指一种学习对另一种学习的影响，或习得的经验对完成其他活动的影响。迁移广泛存在于各种知识、技能与社会规范的学习中。</p>
+<p>在迁移学习的过程当中，通常采用卷纸网络当做特征提取器和fine-tuning两种方法。</p>
+<p>决定能否fine-tuning的因素在新数据集和原来的数据集的差异。</p>
+<hr>
+<p>使用预训练的网络进行微调。</p>
+<p>替换掉网络的输入层（数据），使用新的数据继续训练。Fine-tune时可以选择fine-tune全部层或部分层。与重新训练相比，fine-tune要使用更小的学习率。</p>
+<p>在fine-tune当中，又分为三种方式：</p>
+<h3 id="三种方式？"><a href="#三种方式？" class="headerlink" title="三种方式？"></a>三种方式？</h3><p>Adapted Module方式：（**Auxiliary Tuning[2]，DialGPT[3]**）它是通过在原始的预训练模型中的每个transformer block中加入一些参数可训练的模块实现的。</p>
+<p>Prompt方式：prompt是插入到输入示例的一段文本。举个例子：“Obama is a (职业)” ，这里的””就是prompt。</p>
+<p><strong>？ 没弄明白</strong>下边是prompt的相关论文。后续有时间可以读一读？</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/thunlp/PromptPapers">thunlp&#x2F;PromptPapers: Must-read papers on prompt-based tuning for pre-trained language models. (github.com)</a></p>
+<hr>
+<p>基于强化学习RL的方法：强化学习（Reinforcement learning，RL）讨论的问题是一个<strong>智能体(agent)</strong> 怎么在一个复杂不确定的 <strong>环境(environment)</strong> 里面去极大化它能获得的奖励。通过感知所处环境的 <strong>状态(state)</strong> 对 <strong>动作(action)</strong> 的 **反应(reward)**， 来指导更好的动作，从而获得最大的 **收益(return)**，这被称为在交互中学习，这样的学习方法就被称作强化学习。</p>
+<p>是和监督学习、无监督学习之外的新东西。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/466455380">强化学习入门：基本思想和经典算法 - 知乎 (zhihu.com)</a></p>
+<h1 id="2-Retrain"><a href="#2-Retrain" class="headerlink" title="2 Retrain"></a>2 Retrain</h1><p>目标更大，在更为广泛通用的任务上还是要从头开始。</p>
+<p>具体训练上使用Transformer结构。</p>
+<h1 id="3-Post-Process"><a href="#3-Post-Process" class="headerlink" title="3 Post-Process"></a>3 Post-Process</h1><p>后处理，添加模块来修正。</p>
+<p>来自原博客的图:</p>
+<p><img src="https://img-blog.csdnimg.cn/96aba97b0f3a423685c325c0f67c670c.png" alt="img"></p>
+<h1 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h1><p>勉强弄明白了可控文本生成这个东西的大致背景和方法。</p>
+<p>需要补充的知识太多了。</p>
+<p>这个博文也只能算是入门。之后得继续学习。</p>
+<p>目前的任务是先把花书看完，之后再继续拓展。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/162035103">【NLP笔记】文本生成基础与方案梳理 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yaohaishen/article/details/125893621">可控文本生成系列-A Survey of Controllable Text Generation using Transformer-based Pre-trained_just do it now的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42137700/article/details/82107208">什么是fine-tuning？_喜欢打酱油的老鸟的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/topic/20079475/intro">迁移学习 (Transfer Learning) - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/451440421">预训练模型时代：告别finetune, 拥抱adapter - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/431788068">Prompt方法综述 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/466455380">强化学习入门：基本思想和经典算法 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/334374764">对“可控文本生成”的理解 - 知乎 (zhihu.com)</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/15/%E8%9C%98%E8%9B%9B%E4%BE%A0%E7%BA%B5%E6%A8%AA%E5%9B%9B%E6%B5%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="luke">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Luke的家">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/06/15/%E8%9C%98%E8%9B%9B%E4%BE%A0%E7%BA%B5%E6%A8%AA%E5%9B%9B%E6%B5%B7/" class="post-title-link" itemprop="url">蜘蛛侠纵横四海</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-06-15 17:48:18" itemprop="dateCreated datePublished" datetime="2023-06-15T17:48:18+08:00">2023-06-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/14/20230614/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -627,20 +806,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
