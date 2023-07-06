@@ -20,21 +20,22 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="前言两天前配好了环境就一直没有管博客，现在心血来潮又弄了起来。写个人博客为了记录自己的生活状态，方便自己进步学习。 因此，博客的大致范围包括技术文档，学习笔记，读后感，周记之类的东西吧。软件开发本身就是一个前人栽树，后人乘凉的东西，hexo这个东西正印证了这一点，真是太强大了。搭建一个博客完全没有什么技术门槛的样子……不过要想弄得好看一些还得学一学jsp吧。接下来把分类和标签做完，博客就先搞到这里">
+  <meta name="description" content="李沐课程笔记补充一、循环神经网络1 序列模型 自回归模型 满足一个τ长度的时间跨度  隐变量自回归模型 保留预测，同时更新参数   ​	 非连续对象，仍然可以采用这种方式，使用分类器 马尔科夫模型：HMM? 很多；马尔科夫条件 每个状态 只和前一段时间长度为τ的时间段 存在关系 滤波 p（x_t|y_1:t）  平滑 smoothing  知道其他时刻估计先前 p(x_k| y_1:t)&amp;#x3D">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Page 1">
-<meta property="og:url" content="http://example.com/2023/06/13/Page-1/index.html">
+<meta property="og:title" content="李沐老师深度学习课程补充笔记">
+<meta property="og:url" content="http://example.com/2023/07/04/%E6%9D%8E%E6%B2%90%E8%80%81%E5%B8%88%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E8%A1%A5%E5%85%85%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Luke的家">
-<meta property="og:description" content="前言两天前配好了环境就一直没有管博客，现在心血来潮又弄了起来。写个人博客为了记录自己的生活状态，方便自己进步学习。 因此，博客的大致范围包括技术文档，学习笔记，读后感，周记之类的东西吧。软件开发本身就是一个前人栽树，后人乘凉的东西，hexo这个东西正印证了这一点，真是太强大了。搭建一个博客完全没有什么技术门槛的样子……不过要想弄得好看一些还得学一学jsp吧。接下来把分类和标签做完，博客就先搞到这里">
+<meta property="og:description" content="李沐课程笔记补充一、循环神经网络1 序列模型 自回归模型 满足一个τ长度的时间跨度  隐变量自回归模型 保留预测，同时更新参数   ​	 非连续对象，仍然可以采用这种方式，使用分类器 马尔科夫模型：HMM? 很多；马尔科夫条件 每个状态 只和前一段时间长度为τ的时间段 存在关系 滤波 p（x_t|y_1:t）  平滑 smoothing  知道其他时刻估计先前 p(x_k| y_1:t)&amp;#x3D">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-06-13T05:40:00.000Z">
-<meta property="article:modified_time" content="2023-06-13T06:05:13.232Z">
+<meta property="article:published_time" content="2023-07-04T10:54:05.000Z">
+<meta property="article:modified_time" content="2023-07-06T10:36:45.404Z">
 <meta property="article:author" content="luke">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="NexT">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="AI课程">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2023/06/13/Page-1/">
+<link rel="canonical" href="http://example.com/2023/07/04/%E6%9D%8E%E6%B2%90%E8%80%81%E5%B8%88%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E8%A1%A5%E5%85%85%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -47,7 +48,7 @@
   };
 </script>
 
-  <title>Page 1 | Luke的家</title>
+  <title>李沐老师深度学习课程补充笔记 | Luke的家</title>
   
 
 
@@ -167,7 +168,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/13/Page-1/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/04/%E6%9D%8E%E6%B2%90%E8%80%81%E5%B8%88%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E8%A1%A5%E5%85%85%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -180,7 +181,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Page 1
+          李沐老师深度学习课程补充笔记
         </h1>
 
         <div class="post-meta">
@@ -189,17 +190,23 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-06-13 13:40:00 / 修改时间：14:05:13" itemprop="dateCreated datePublished" datetime="2023-06-13T13:40:00+08:00">2023-06-13</time>
+              <time title="创建时间：2023-07-04 18:54:05" itemprop="dateCreated datePublished" datetime="2023-07-04T18:54:05+08:00">2023-07-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-06 18:36:45" itemprop="dateModified" datetime="2023-07-06T18:36:45+08:00">2023-07-06</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BB%BC%E5%90%88/" itemprop="url" rel="index"><span itemprop="name">综合</span></a>
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
                 </span>
             </span>
 
@@ -221,7 +228,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>两天前配好了环境就一直没有管博客，现在心血来潮又弄了起来。写个人博客为了记录自己的生活状态，方便自己进步学习。<br> 因此，博客的大致范围包括技术文档，学习笔记，读后感，周记之类的东西吧。<br>软件开发本身就是一个前人栽树，后人乘凉的东西，hexo这个东西正印证了这一点，真是太强大了。搭建一个博客完全没有什么技术门槛的样子……不过要想弄得好看一些还得学一学jsp吧。<br>接下来把分类和标签做完，博客就先搞到这里了，之后学习一下服务器部署之类的东西玩一玩。<br>不过上午导师发消息让我过去找她，不知道今后又来什么的任务了。</p>
+        <h1 id="李沐课程笔记补充"><a href="#李沐课程笔记补充" class="headerlink" title="李沐课程笔记补充"></a>李沐课程笔记补充</h1><h2 id="一、循环神经网络"><a href="#一、循环神经网络" class="headerlink" title="一、循环神经网络"></a>一、循环神经网络</h2><h3 id="1-序列模型"><a href="#1-序列模型" class="headerlink" title="1 序列模型"></a>1 序列模型</h3><ul>
+<li><p>自回归模型 满足一个τ长度的时间跨度</p>
+</li>
+<li><p>隐变量自回归模型 保留预测，同时更新参数</p>
+</li>
+</ul>
+<p>​	 非连续对象，仍然可以采用这种方式，使用分类器</p>
+<h4 id="马尔科夫模型：HMM-很多；"><a href="#马尔科夫模型：HMM-很多；" class="headerlink" title="马尔科夫模型：HMM? 很多；"></a>马尔科夫模型：HMM? 很多；</h4><p>马尔科夫条件 每个状态 只和前一段时间长度为τ的时间段 存在关系</p>
+<p>滤波 p（x_t|y_1:t） </p>
+<p>平滑 smoothing  知道其他时刻估计先前 p(x_k| y_1:t)&#x3D;&gt;</p>
+<p>解码 decoding p(x_1:t|y_1:t) viterbi算法</p>
+<h3 id="2-RNN循环神经网络"><a href="#2-RNN循环神经网络" class="headerlink" title="2 RNN循环神经网络"></a>2 RNN循环神经网络</h3><p>具有隐状态的神经网络</p>
+<p>当前时间步隐藏变量由当前时间步的输入 与前一个时间步的隐藏变量一起计算得出</p>
+<p>困惑度</p>
+<h3 id="3-GRU"><a href="#3-GRU" class="headerlink" title="3 GRU"></a>3 GRU</h3><p>增设了更新门和重置们，将重置门R_t 和隐状态机制集成</p>
+<p>分别增加&#x2F;减少更新状态的影响</p>
+<p>前者有助于捕获序列中的长期依赖关系</p>
+<p>后者有助于捕获序列中的短期依赖关系</p>
+<h3 id="4-LSTM"><a href="#4-LSTM" class="headerlink" title="4 LSTM"></a>4 LSTM</h3><p>输入门 输出门 遗忘门 候选记忆 隐状态</p>
+<h3 id="5-深度循环神经网络"><a href="#5-深度循环神经网络" class="headerlink" title="5 深度循环神经网络"></a>5 深度循环神经网络</h3><p>多层循环神经网络堆叠在一起</p>
+<h3 id="6-双向循环神经网络"><a href="#6-双向循环神经网络" class="headerlink" title="6 双向循环神经网络"></a>6 双向循环神经网络</h3><p>动态规划？？隐马尔科夫模型</p>
+<p> <em>双向循环神经网络</em>（bidirectional RNNs） 添加了反向传递信息的隐藏层，</p>
+<h3 id="7-编码器解码器"><a href="#7-编码器解码器" class="headerlink" title="7 编码器解码器"></a>7 编码器解码器</h3><p>处理可变长度的输入输出</p>
+<h3 id="8-seq2seq"><a href="#8-seq2seq" class="headerlink" title="8 seq2seq"></a>8 seq2seq</h3><ul>
+<li>BLEU是一种常用的评估方法，它通过测量预测序列和标签序列之间的n元语法的匹配度来评估预测。</li>
+</ul>
+<h3 id="9-束搜索"><a href="#9-束搜索" class="headerlink" title="9 束搜索"></a>9 束搜索</h3><p>贪心算法的升级模式，在每一选择中，不仅仅选择最优解，同时保留选择K个次优解（次优解的数目自定义） </p>
+<h2 id="二、注意力机制"><a href="#二、注意力机制" class="headerlink" title="二、注意力机制"></a>二、注意力机制</h2><h3 id="1-注意力"><a href="#1-注意力" class="headerlink" title="1 注意力"></a>1 注意力</h3><p>查询query 键key 值 value</p>
+<p>query和key之间的交互形成了注意力汇聚 之后 它融合了value来形成输出</p>
+<p>注意力汇聚的方式：</p>
+<p>从 平均汇聚到非参数注意力汇聚（<em>Nadaraya-Watson核回归</em>）</p>
+<p>带参数的注意力汇聚：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dt4y1J7ov/?spm_id_from=333.337.search-card.all.click&vd_source=cdda1799ea70cc64d9632c0a653b61bb">注意力机制的本质|Self-Attention|Transformer|QKV矩阵_哔哩哔哩_bilibili</a></p>
+<h3 id="2-自注意力机制"><a href="#2-自注意力机制" class="headerlink" title="2 自注意力机制"></a>2 自注意力机制</h3><p>每个查询都会关注所有的键－值对并生成一个注意力输出。 由于查询、键和值来自同一组输入，因此被称为 <em>自注意力</em>（self-attention)</p>
+<h3 id="3-transformer"><a href="#3-transformer" class="headerlink" title="3 transformer"></a>3 transformer</h3><p>编码器和解码器 添加了多头注意力机制</p>
+<p>并综合楼残差连接和层规范化等</p>
 
     </div>
 
@@ -231,8 +273,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
-              <a href="/tags/NexT/" rel="tag"># NexT</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag"># 深度学习</a>
+              <a href="/tags/AI%E8%AF%BE%E7%A8%8B/" rel="tag"># AI课程</a>
           </div>
 
         
@@ -240,11 +283,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2023/06/13/%E5%92%8C%E5%AF%BC%E5%B8%88%E4%BA%A4%E6%B5%811/" rel="next" title="和导师交流1">
-      和导师交流1 <i class="fa fa-chevron-right"></i>
+    <a href="/2023/07/04/%E8%87%AA%E6%96%B0%E4%B8%96%E7%95%8C/" rel="prev" title="自新世界">
+      <i class="fa fa-chevron-left"></i> 自新世界
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -308,7 +351,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9D%8E%E6%B2%90%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0%E8%A1%A5%E5%85%85"><span class="nav-number">1.</span> <span class="nav-text">李沐课程笔记补充</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-number">1.1.</span> <span class="nav-text">一、循环神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%BA%8F%E5%88%97%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.1.</span> <span class="nav-text">1 序列模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A9%AC%E5%B0%94%E7%A7%91%E5%A4%AB%E6%A8%A1%E5%9E%8B%EF%BC%9AHMM-%E5%BE%88%E5%A4%9A%EF%BC%9B"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">马尔科夫模型：HMM? 很多；</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-RNN%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-number">1.1.2.</span> <span class="nav-text">2 RNN循环神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-GRU"><span class="nav-number">1.1.3.</span> <span class="nav-text">3 GRU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-LSTM"><span class="nav-number">1.1.4.</span> <span class="nav-text">4 LSTM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%B7%B1%E5%BA%A6%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-number">1.1.5.</span> <span class="nav-text">5 深度循环神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E5%8F%8C%E5%90%91%E5%BE%AA%E7%8E%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-number">1.1.6.</span> <span class="nav-text">6 双向循环神经网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-%E7%BC%96%E7%A0%81%E5%99%A8%E8%A7%A3%E7%A0%81%E5%99%A8"><span class="nav-number">1.1.7.</span> <span class="nav-text">7 编码器解码器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-seq2seq"><span class="nav-number">1.1.8.</span> <span class="nav-text">8 seq2seq</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-%E6%9D%9F%E6%90%9C%E7%B4%A2"><span class="nav-number">1.1.9.</span> <span class="nav-text">9 束搜索</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="nav-number">1.2.</span> <span class="nav-text">二、注意力机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="nav-number">1.2.1.</span> <span class="nav-text">1 注意力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="nav-number">1.2.2.</span> <span class="nav-text">2 自注意力机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-transformer"><span class="nav-number">1.2.3.</span> <span class="nav-text">3 transformer</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

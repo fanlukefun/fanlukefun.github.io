@@ -160,6 +160,187 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/04/%E6%9D%8E%E6%B2%90%E8%80%81%E5%B8%88%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E8%A1%A5%E5%85%85%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="luke">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Luke的家">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/04/%E6%9D%8E%E6%B2%90%E8%80%81%E5%B8%88%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E8%A1%A5%E5%85%85%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">李沐老师深度学习课程补充笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-07-04 18:54:05" itemprop="dateCreated datePublished" datetime="2023-07-04T18:54:05+08:00">2023-07-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-06 18:36:45" itemprop="dateModified" datetime="2023-07-06T18:36:45+08:00">2023-07-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="李沐课程笔记补充"><a href="#李沐课程笔记补充" class="headerlink" title="李沐课程笔记补充"></a>李沐课程笔记补充</h1><h2 id="一、循环神经网络"><a href="#一、循环神经网络" class="headerlink" title="一、循环神经网络"></a>一、循环神经网络</h2><h3 id="1-序列模型"><a href="#1-序列模型" class="headerlink" title="1 序列模型"></a>1 序列模型</h3><ul>
+<li><p>自回归模型 满足一个τ长度的时间跨度</p>
+</li>
+<li><p>隐变量自回归模型 保留预测，同时更新参数</p>
+</li>
+</ul>
+<p>​	 非连续对象，仍然可以采用这种方式，使用分类器</p>
+<h4 id="马尔科夫模型：HMM-很多；"><a href="#马尔科夫模型：HMM-很多；" class="headerlink" title="马尔科夫模型：HMM? 很多；"></a>马尔科夫模型：HMM? 很多；</h4><p>马尔科夫条件 每个状态 只和前一段时间长度为τ的时间段 存在关系</p>
+<p>滤波 p（x_t|y_1:t） </p>
+<p>平滑 smoothing  知道其他时刻估计先前 p(x_k| y_1:t)&#x3D;&gt;</p>
+<p>解码 decoding p(x_1:t|y_1:t) viterbi算法</p>
+<h3 id="2-RNN循环神经网络"><a href="#2-RNN循环神经网络" class="headerlink" title="2 RNN循环神经网络"></a>2 RNN循环神经网络</h3><p>具有隐状态的神经网络</p>
+<p>当前时间步隐藏变量由当前时间步的输入 与前一个时间步的隐藏变量一起计算得出</p>
+<p>困惑度</p>
+<h3 id="3-GRU"><a href="#3-GRU" class="headerlink" title="3 GRU"></a>3 GRU</h3><p>增设了更新门和重置们，将重置门R_t 和隐状态机制集成</p>
+<p>分别增加&#x2F;减少更新状态的影响</p>
+<p>前者有助于捕获序列中的长期依赖关系</p>
+<p>后者有助于捕获序列中的短期依赖关系</p>
+<h3 id="4-LSTM"><a href="#4-LSTM" class="headerlink" title="4 LSTM"></a>4 LSTM</h3><p>输入门 输出门 遗忘门 候选记忆 隐状态</p>
+<h3 id="5-深度循环神经网络"><a href="#5-深度循环神经网络" class="headerlink" title="5 深度循环神经网络"></a>5 深度循环神经网络</h3><p>多层循环神经网络堆叠在一起</p>
+<h3 id="6-双向循环神经网络"><a href="#6-双向循环神经网络" class="headerlink" title="6 双向循环神经网络"></a>6 双向循环神经网络</h3><p>动态规划？？隐马尔科夫模型</p>
+<p> <em>双向循环神经网络</em>（bidirectional RNNs） 添加了反向传递信息的隐藏层，</p>
+<h3 id="7-编码器解码器"><a href="#7-编码器解码器" class="headerlink" title="7 编码器解码器"></a>7 编码器解码器</h3><p>处理可变长度的输入输出</p>
+<h3 id="8-seq2seq"><a href="#8-seq2seq" class="headerlink" title="8 seq2seq"></a>8 seq2seq</h3><ul>
+<li>BLEU是一种常用的评估方法，它通过测量预测序列和标签序列之间的n元语法的匹配度来评估预测。</li>
+</ul>
+<h3 id="9-束搜索"><a href="#9-束搜索" class="headerlink" title="9 束搜索"></a>9 束搜索</h3><p>贪心算法的升级模式，在每一选择中，不仅仅选择最优解，同时保留选择K个次优解（次优解的数目自定义） </p>
+<h2 id="二、注意力机制"><a href="#二、注意力机制" class="headerlink" title="二、注意力机制"></a>二、注意力机制</h2><h3 id="1-注意力"><a href="#1-注意力" class="headerlink" title="1 注意力"></a>1 注意力</h3><p>查询query 键key 值 value</p>
+<p>query和key之间的交互形成了注意力汇聚 之后 它融合了value来形成输出</p>
+<p>注意力汇聚的方式：</p>
+<p>从 平均汇聚到非参数注意力汇聚（<em>Nadaraya-Watson核回归</em>）</p>
+<p>带参数的注意力汇聚：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dt4y1J7ov/?spm_id_from=333.337.search-card.all.click&vd_source=cdda1799ea70cc64d9632c0a653b61bb">注意力机制的本质|Self-Attention|Transformer|QKV矩阵_哔哩哔哩_bilibili</a></p>
+<h3 id="2-自注意力机制"><a href="#2-自注意力机制" class="headerlink" title="2 自注意力机制"></a>2 自注意力机制</h3><p>每个查询都会关注所有的键－值对并生成一个注意力输出。 由于查询、键和值来自同一组输入，因此被称为 <em>自注意力</em>（self-attention)</p>
+<h3 id="3-transformer"><a href="#3-transformer" class="headerlink" title="3 transformer"></a>3 transformer</h3><p>编码器和解码器 添加了多头注意力机制</p>
+<p>并综合楼残差连接和层规范化等</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/07/04/%E8%87%AA%E6%96%B0%E4%B8%96%E7%95%8C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="luke">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Luke的家">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/07/04/%E8%87%AA%E6%96%B0%E4%B8%96%E7%95%8C/" class="post-title-link" itemprop="url">自新世界</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-07-04 18:53:32 / 修改时间：19:50:31" itemprop="dateCreated datePublished" datetime="2023-07-04T18:53:32+08:00">2023-07-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BB%BC%E5%90%88/" itemprop="url" rel="index"><span itemprop="name">综合</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="安东·德沃夏克《第九交响曲》第二乐章？"><a href="#安东·德沃夏克《第九交响曲》第二乐章？" class="headerlink" title="安东·德沃夏克《第九交响曲》第二乐章？"></a>安东·德沃夏克《第九交响曲》第二乐章？</h1><p>1 自新世界 结局+中间</p>
+<p>2 悠哉日常大王 ？存疑 第一季肯定是？</p>
+<p>3 回转企鹅罐 10:15 病房</p>
+<p>4 京吹 s1ep4 3:20</p>
+<p>背景：德沃夏克在美国时怀念故乡波西米亚所做；</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/30/%E6%9D%8E%E6%B2%90%E8%80%81%E5%B8%88%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B%E4%B8%80%E5%91%A8%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -403,10 +584,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-06-22 16:59:02 / 修改时间：20:30:50" itemprop="dateCreated datePublished" datetime="2023-06-22T16:59:02+08:00">2023-06-22</time>
+              <time title="创建时间：2023-06-22 16:59:02" itemprop="dateCreated datePublished" datetime="2023-06-22T16:59:02+08:00">2023-06-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-07-04 21:06:34" itemprop="dateModified" datetime="2023-07-04T21:06:34+08:00">2023-07-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -439,6 +626,14 @@
 <p>第一个战士泰山压顶来换血。第二个炼金术师考得叠加毒液。第三个机器人靠扩容能量球。</p>
 <p>不知道第四个人物通关后会不会解锁新的剧情。</p>
 <p>不过玩法足够诱人的话，作为一个手游也不需要什么剧情了吧。</p>
+<h1 id="追加"><a href="#追加" class="headerlink" title="追加"></a>追加</h1><p>第四周目打了一个星期，费了大力。</p>
+<p>最后还是看b站的提示悟出来的玩法。急速切换状态来过的。</p>
+<p>正是因为这个观者强力，所以玩法才多。</p>
+<p>我前三次过的都是积攒伤害，打后期，结果观者的阿尔法和神格恰好对了我的胃口，因此也从后期的想法来对着玩，想要从后期下手，直接一口气干翻敌人。</p>
+<p>结果自己想的虽然不错，但执行起来总是前期撑不过去。</p>
+<p>看了b站的功率提示才顿悟状态的急速切换可以打出高额的伤害。</p>
+<p>放假的那天顺利通关。</p>
+<p>好游戏，真的是好游戏。</p>
 
       
     </div>
@@ -897,151 +1092,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/13/%E5%92%8C%E5%AF%BC%E5%B8%88%E4%BA%A4%E6%B5%811/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="luke">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Luke的家">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/06/13/%E5%92%8C%E5%AF%BC%E5%B8%88%E4%BA%A4%E6%B5%811/" class="post-title-link" itemprop="url">和导师交流1</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-06-13 16:58:07 / 修改时间：17:19:14" itemprop="dateCreated datePublished" datetime="2023-06-13T16:58:07+08:00">2023-06-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/meeting/" itemprop="url" rel="index"><span itemprop="name">meeting</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          这里有东西被加密了，需要输入密码查看哦。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/06/13/%E5%92%8C%E5%AF%BC%E5%B8%88%E4%BA%A4%E6%B5%811/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/06/13/Page-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="luke">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Luke的家">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/06/13/Page-1/" class="post-title-link" itemprop="url">Page 1</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-06-13 13:40:00 / 修改时间：14:05:13" itemprop="dateCreated datePublished" datetime="2023-06-13T13:40:00+08:00">2023-06-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%BB%BC%E5%90%88/" itemprop="url" rel="index"><span itemprop="name">综合</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>两天前配好了环境就一直没有管博客，现在心血来潮又弄了起来。写个人博客为了记录自己的生活状态，方便自己进步学习。<br> 因此，博客的大致范围包括技术文档，学习笔记，读后感，周记之类的东西吧。<br>软件开发本身就是一个前人栽树，后人乘凉的东西，hexo这个东西正印证了这一点，真是太强大了。搭建一个博客完全没有什么技术门槛的样子……不过要想弄得好看一些还得学一学jsp吧。<br>接下来把分类和标签做完，博客就先搞到这里了，之后学习一下服务器部署之类的东西玩一玩。<br>不过上午导师发消息让我过去找她，不知道今后又来什么的任务了。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1106,7 +1161,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1119,7 +1174,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
